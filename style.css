@@ -1,0 +1,99 @@
+:root {
+  background-color: #fcf8ee;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --accent-color: #2563eb;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.accordion-container {
+  width: 100%;
+  max-width: 600px;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+details {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+details[open] {
+  border-color: var(--accent-color);
+}
+
+summary {
+  list-style: none;
+  padding: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+/* Remove default marker for Safari */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom indicator chevron */
+summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(-135deg);
+  border-color: var(--accent-color);
+}
+
+/* The Grid Transition Magic */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease-out;
+}
+
+details[open] .accordion-content {
+  grid-template-rows: 1fr;
+}
+
+/* Inner wrapper needs min-height: 0 to let grid collapse correctly */
+.content-wrapper {
+  min-height: 0;
+}
+
+.content-wrapper p {
+  padding: 0 1rem 1rem 1rem;
+  margin: 0;
+  color: var(--text-muted);
+}
