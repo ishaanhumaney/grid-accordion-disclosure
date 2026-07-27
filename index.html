@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ with Animations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="accordion-container">
+    <h2>Frequently Asked Questions</h2>
+
+    <details name="faq-group" open>
+      <summary>What is the CSS grid-template-rows trick?</summary>
+      <div class="accordion-content">
+        <div class="content-wrapper">
+          <p>It's a clever technique to animate elements to an unknown auto height. By transitioning grid-template-rows from 0fr to 1fr, the browser can smoothly animate the expansion without needing hardcoded heights or JavaScript.</p>
+        </div>
+      </div>
+    </details>
+
+    <details name="faq-group">
+      <summary>Does this require any JavaScript?</summary>
+      <div class="accordion-content">
+        <div class="content-wrapper">
+          <p>Nope! By using the native HTML <code>name</code> attribute on the <code>&lt;details&gt;</code> elements, the browser automatically handles closing the other open items in the group just like radio buttons.</p>
+        </div>
+      </div>
+    </details>
+
+    <details name="faq-group">
+      <summary>Is it accessible?</summary>
+      <div class="accordion-content">
+        <div class="content-wrapper">
+          <p>Yes, because it relies completely on semantic HTML. Keyboard navigation, screen readers, and focus states work perfectly out of the box without any extra ARIA configuration.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</body>
+</html>
