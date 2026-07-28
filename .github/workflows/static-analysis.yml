@@ -21,4 +21,5 @@ jobs:
       - name: Lint HTML & CSS Markup
         run: |
           npx -y htmlhint index.html
-          npx -y stylelint style.css --config '{"rules": {"property-no-unknown": true}}'
+          echo '{"rules": {"property-no-unknown": true}}' > .stylelintrc.json
+          npx -y stylelint style.css
